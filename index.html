@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Circuitos</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orelega+One&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+    <script src="circuito.js" defer></script>
+</head>
+
+<body background="fundo.jpg">
+    <div class='tittle'>
+        <h1>SIMULADOR DE CIRCUITOS ELETRÔNICOS</h1>
+    </div>
+
+    <div class = 'consid'>
+        <h2>A Bateria é considerada como 12V e 0,2A de corrente;<br>
+            Resistores considerados como 100 Ohms de resistência;<br>
+            Capacitores contem carga de 2 deciCoulomb (0.2 C);<br>
+            Indutores devem ser considerados com aproximadamente 0.5 Henri;<br>
+            Arraste os componentes que deseja acima aos círculos do circuito.</h2>
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class='div_principal'>
+
+        <div class='div_componentes'>
+            <img onmouseover="Description_Cap()" onmouseout="Remove_Description_Cap()" id='img_capacitor' src="capacitor.png"   
+                draggable="true" ondragstart="dragstart_handler(event);" ondragend="dragend_handler(event);">
+            <div id='capacitor_div'></div>
+            <br>
+
+            <img onmouseover="Description_Res()" onmouseout="Remove_Description_Res()" id='img_resistor' src="resistor.png"
+                draggable="true" ondragstart="dragstart_handler(event);" ondragend="dragend_handler(event);">
+            <div id='resistor_div'></div>
+            <br>
+
+            <img onmouseover="Description_Indut()" onmouseout="Remove_Description_Indut()" id='img_indutor' src="indutor.png"
+                draggable="true" ondragstart="dragstart_handler(event);" ondragend="dragend_handler(event);">
+            <div id='indutor_div'></div>
+
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <div class='Circuitos'>
+        <img src="Circuito_DEF.png" class='Circuito_paralelo'>
+
+        <div id='Drop_Componente_Paralelo1' ondrop="drop_handler(event);" ondragover="dragover_handler(event)"></div>
+
+        <div id='Drop_Componente_Paralelo2' ondrop="drop_handler(event);" ondragover="dragover_handler(event)"></div>
+
+        <div id='Drop_Componente_Paralelo3' ondrop="drop_handler(event);" ondragover="dragover_handler(event)"></div>
+
+        <div id='Drop_Componente_Paralelo4' ondrop="drop_handler(event);" ondragover="dragover_handler(event)"></div>
+
+        <div id='Drop_Componente_Serie1' ondrop="drop_handler(event);" ondragover="dragover_handler(event)"></div>
+
+        <div id='Drop_Componente_Serie2' ondrop="drop_handler(event);" ondragover="dragover_handler(event)"></div>
+
+    </div>
+
+    <canvas id="myCanvas"></canvas>
+    <div draggable="true" id="newId" ondragstart="dragstart_handler(event);" ondragend="dragend_handler(event);"></div>
+
+    <button id='reset' onclick='Recarrega()'>RESET</button>
+    <button id='simul' onclick='circuito()'>SIMULAR</button>
+
+    <div class = 'tres'>
+        <h1>O que é um resistor?</h1><br><br><br>
+        <h2>Um resistor ou uma resistência, é um dispositivo elétrico muito utilizado em eletrônica, ora com a finalidade de transformar energia elétrica em energia térmica por meio do efeito joule, ora com a finalidade de limitar a corrente elétrica em um circuito.<br>
+
+            Resistores são componentes que têm por finalidade oferecer uma oposição à passagem de corrente elétrica, através de seu material.<br>
+            A essa oposição damos o nome de resistência elétrica ou impedância, que possui como unidade o ohm. Causam uma queda de tensão em alguma parte de um circuito elétrico, porém jamais causam quedas de corrente elétrica, apesar de limitar a corrente.<br>
+            Isso significa que a corrente elétrica que entra em um terminal do resistor será exatamente a mesma que sai pelo outro terminal, porém há uma queda de tensão.<br>
+            Utilizando-se disso, é possível usar os resistores para controlar a corrente elétrica sobre os componentes desejados.<br><br>
+            Potência, Diferença de Potencial, Resistencia Equivalente (Série e Paralelo) e Potência Dissipada são informações que podem ser extraídas de um circuito, como no simulador.<br><br>
+            Tais podem ser definidas como:<br><br><br>
+            Potência[Watt] = U . I<br>Potência Dissipada[Watt] = U . I<br>Resistência em série[Ohms] = R1 + R2 ... Rn<br>Resistência em paralelo[Ohms] = 1/R1 + 1/R2 + ... 1/Rn<br>Diferença de Potencial[Volts] = R . I<br><br><br>Unidades:   I = Ampere, R = Ohms, U = Volts</h2>
+    </div>
+
+    <div class = 'tcap'>
+        <h1>O que é um capacitor?</h1><br><br><br>
+        <h2>Capacitor ou condensador, é um componente que armazena cargas elétricas num campo elétrico, acumulando um desequilíbrio interno de carga elétrica.<br>
+            Os formatos típicos consistem em dois eletrodos ou placas que armazenam cargas opostas.<br>
+            Estas duas placas são condutoras e são separadas por um isolante (ou dielétrico).<br>
+            A carga é armazenada na superfície das placas, no limite com o dielétrico.<br>
+            Devido ao fato de cada placa armazenar cargas iguais, porém opostas, a carga total no dispositivo é sempre zero.<br>
+            Capacitância Equivalente (Série e Paralelo) e Energia Acumulada no Capacitor são informações que podem ser extraídas de um circuito, como no simulador.<br><br>
+            Tais podem ser definidas como:<br><br><br>
+            Capacitância em Série[Farad] = 1/C1 + 1/C2 + ... + 1/Cn<br>
+            1 / Capacitância em Paralelo[Farad] = C1 + C2 + ... + Cn<br>
+            Energia Acumulada no Capacitor[Joule] = (Capacitância Equivalente . U)/2<br><br><br>
+            Unidades:   I = Ampere, C = Farad, U = Volts<br></h2>
+    </div>
+
+    <div class = 'tind'>
+        <h1>O que é um indutor?</h1><br><br><br>
+        <h2>Um indutor é um dispositivo elétrico passivo que armazena energia na forma de campo magnético, normalmente combinando o efeito de vários loops da corrente elétrica.<br>
+            O indutor pode ser utilizado em circuitos como um filtro passa baixa, rejeitando as altas frequências.<br>
+            Também costuma ser chamado de bobina, choke ou reator.<br>
+            Um indutor é geralmente construído como uma bobina de material condutor, por exemplo, fio de cobre.<br> Um núcleo de material ferromagnético aumenta a indutância concentrando as linhas de força de campo magnético que fluem pelo interior das espiras.<br> Indutores podem ser construídos em circuitos integrados utilizando o mesmo processo que é usado em chips de computador. Nesses casos, normalmente o alumínio é utilizado como material condutor.<br> Porém, é raro a construção de indutores em CI's; eles são volumosos em uma pequena escala, e praticamente restritos, sendo muito mais comum o uso de um circuito chamado "gyrator", que utiliza um capacitor comportando-se como se fosse um indutor.<br>
+            Pequenos indutores usados para frequências muito altas são algumas vezes feitos com um fio passando através de um cilindro de ferrite.<br>
+            Tensão nos Indutores, Energia Acumulada no Indutor e Indutância Equivalente (Série e Paralelo) são informações que podem ser extraídas de um circuito, como no simulador.<br><br> 
+            Tais podem ser definidas como:<br><br><br>
+            Tensão nos Indutores[Volts] = -L . (I/A)<br>
+            Energia Acumulada no Indutor[Joules] = (L . I^2)/2<br>
+            Indutância em Série[Henri] = L1 + L2 + L3 + ... + Ln<br>
+            1 / Indutância em Paralelo[Henri] = 1/L1 + 1/L2 + ... + 1/Ln<br><br><br>
+            Unidades:   I = Ampere, L = Henri, A = Área[m]<br>
+            </h2>
+    </div>
+
+    <h4>Grupo 4<br>
+    Mateus José Whitaker Filipe<br>
+    Erik Signori Thalheimer<br>
+    Lucas Lopes Leme<br>
+    Rafael Vedoato Lett<br>
+    Mayron Germann Sousa de Pádua</h4>
+</body>
+
+</html>

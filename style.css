@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.tittle {
+    text-align: center;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    border: solid;
+    padding: 40px;
+    border-radius: 30px;
+    background-color: #FFFFFFBB;
+    color: black;
+}
+.consid{
+
+    top: 950px;
+    right: 1050px;
+    position: relative;
+    text-align: right;
+    font-family: 'Times New Roman';
+    font-size: 15px;
+    padding: 1px;
+    border: solid;
+    background-color: #FFFFFFBB;
+    color: black;
+    
+
+}
+.div_principal {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 1000px;
+}
+.div_componentes {
+    position: relative;
+    bottom: 100px;
+    width: 455px;
+    left: 100px;
+    padding: 40px;
+}
+#img_capacitor {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #1C1C1C;
+    border-radius: 100px;
+}
+#newId {
+    width: 150px;
+    height: 150px;
+    border-radius: 100px;
+}
+#img_resistor {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #1C1C1C;
+    border-radius: 100px;
+}
+#img_indutor {
+    display: inline-block;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border: 5px solid #1C1C1C;
+    border-radius: 100px;
+}
+
+#capacitor_div {
+    position: absolute;
+    display: inline-block;
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 160px;
+    right: 20px;
+}
+
+
+#resistor_div {
+    position: absolute;
+    display: inline-block;
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 160px;
+    right: 20px;
+}
+
+#indutor_div {
+    position: absolute;
+    display: inline-block;
+    font-family: 'Times New Roman';
+    width: 200px;
+    height: 160px;
+    right: 20px;
+}
+.Circuitos {
+    position: absolute;
+    width: 950px;
+    height: 800px;
+    right: 200px;
+    top: 200px;
+}
+#Drop_Componente_Paralelo1 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: solid #1C1C1C;
+    border-radius: 100px;
+    top: 30px;
+    right: 418px;
+    transition: .4s;
+}
+#Drop_Componente_Paralelo2 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: solid #1C1C1C;
+    border-radius: 100px;
+    top: 180px;
+    right: 418px;
+    transition: .4s;
+}
+#Drop_Componente_Paralelo3 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: solid #1C1C1C;
+    border-radius: 100px;
+    top: 330px;
+    right: 418px;
+    transition: .4s;
+}
+#Drop_Componente_Paralelo4 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: solid #1C1C1C;
+    border-radius: 100px;
+    top: 480px;
+    right: 418px;
+    transition: .4s;
+}
+
+#Drop_Componente_Serie1 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: solid #1C1C1C;
+    border-radius: 100px;
+    top: 178px;
+    right: 135px;
+    transition: .4s;
+}
+#Drop_Componente_Serie2 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: solid #1C1C1C;
+    border-radius: 100px;
+    top: 178px;
+    right: 705px;
+    transition: .4s;
+}
+
+.arrastando {
+    opacity: 0.3;
+    transition: .4s;
+}
+.Sinalizar {
+    background-color: #363636AA;
+}
+.encima {
+    background-color: #008000AA;
+}
+#reset {
+    position: absolute;
+    border: solid 1px black;
+    border-radius: 10px;
+    right: 50px;
+    bottom: 300px;
+    width: 80px;
+    height: 35px;
+    font-family: 'Times New Roman';
+    background-color: #FFFFFFAA;
+    color: black;
+}
+#simul {
+    position: absolute;
+    border: solid 1px black;
+    border-radius: 10px;
+    right: 50px;
+    bottom: 200px;
+    width: 80px;
+    height: 35px;
+    font-family: 'Times New Roman';
+    background-color: #FFFFFFAA;
+    color: black;;
+}
+
+#myCanvas {
+    text-align: center;
+    position: absolute;
+    border:1px solid #000000;
+    right: 450px;
+    top: 1000px;
+    width:500px;
+    height:300px;
+    font-family: 'Times New Roman';
+    font-size: 15px;
+}
+
+.tres{
+    border:1px solid #000000;
+    position: relative;
+    bottom: 350px;
+    text-align: center;
+    font-family: 'Times New Roman';
+    font-size: 15px;
+    padding: 1px;
+    color: black;
+    background-color: #FFFFFFAA;
+}
+
+.tcap{
+    border:1px solid #000000;
+    position: relative;
+    bottom: 300px;
+    text-align: center;
+    font-family: 'Times New Roman';
+    font-size: 15px;
+    padding: 1px;
+    color: black;
+    background-color: #FFFFFFAA;
+}
+.tind{
+    border:1px solid #000000;
+    position: relative;
+    bottom: 250px;
+    text-align: center;
+    font-family: 'Times New Roman';
+    font-size: 15px;
+    padding: 1px;
+    color: black;
+    background-color: #FFFFFFAA;
+}
+
+h4{
+    text-align: center;
+    font-family: 'Times New Roman';
+}
